@@ -9,7 +9,7 @@ A powerful Retrieval-Augmented Generation (RAG) chatbot that can answer question
 ## ✨ Features
 
 - 📚 **Document Processing**: Supports TXT, PDF, and DOCX files
-- 🔍 **Smart Search**: FAISS-powered vector similarity search  
+- 🔍 **Smart Search**: FAISS-powered vector similarity search
 - 🧠 **Intelligent Responses**: Uses Hugging Face models for text generation
 - 🌐 **Modern Web UI**: React-based interface with real-time chat
 - 🔄 **MCP Protocol**: Model Context Protocol support for advanced integrations
@@ -28,30 +28,34 @@ A powerful Retrieval-Augmented Generation (RAG) chatbot that can answer question
 ### Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/yourusername/rag-bot.git
    cd rag-bot
    ```
 
 2. **Set up Python environment**
+
    ```bash
    python -m venv virtualenv
-   
+
    # On Windows:
    virtualenv\\Scripts\\activate
-   
+
    # On Linux/Mac:
    source virtualenv/bin/activate
-   
+
    pip install -r requirements.txt
    ```
 
 3. **Configure environment variables**
+
    ```bash
    cp .env.example .env
    ```
-   
+
    Edit `.env` and add your Hugging Face token:
+
    ```env
    HF_TOKEN=your-hugging-face-token-here
    SERVER_HOST=0.0.0.0
@@ -62,6 +66,7 @@ A powerful Retrieval-Augmented Generation (RAG) chatbot that can answer question
 4. **Run the application**
 
    **Option A: React Web UI (Recommended)**
+
    ```bash
    # Terminal 1: Start backend
    python web_server.py
@@ -71,12 +76,15 @@ A powerful Retrieval-Augmented Generation (RAG) chatbot that can answer question
    npm install
    npm start
    ```
+
    Access at: http://localhost:3000
 
    **Option B: Simple Web Interface**
+
    ```bash
    python simple_web_app.py
    ```
+
    Access at: http://localhost:8000
 
 ## 📖 Usage
@@ -90,11 +98,13 @@ A powerful Retrieval-Augmented Generation (RAG) chatbot that can answer question
 ### Example Questions
 
 **Document-based questions:**
+
 - "What is machine learning?"
 - "Explain the types of neural networks"
 - "How does the training process work?"
 
 **General knowledge questions:**
+
 - "What is Python programming?"
 - "Tell me about artificial intelligence"
 - "How do computers work?"
@@ -107,13 +117,13 @@ The system provides a REST API for programmatic access:
 import requests
 
 # Ask a question
-response = requests.post("http://localhost:8000/ask", 
+response = requests.post("http://localhost:8000/ask",
     json={"question": "What is machine learning?"})
 print(response.json()["answer"])
 
 # Upload a document
 with open("document.pdf", "rb") as f:
-    response = requests.post("http://localhost:8000/upload", 
+    response = requests.post("http://localhost:8000/upload",
         files={"file": f})
 
 # Search documents
@@ -153,7 +163,7 @@ Key configuration options in `.env`:
 # Required: Get from https://huggingface.co/settings/tokens
 HF_TOKEN=your-hugging-face-token
 
-# Server Configuration  
+# Server Configuration
 SERVER_HOST=0.0.0.0
 SERVER_PORT=8000
 
@@ -171,6 +181,7 @@ python test_rag_system.py
 ```
 
 Test specific components:
+
 ```bash
 # Test document processing
 python -c "from mcp_servers.rag_server.document_processor import DocumentProcessor; print('✅ Document processor working')"
@@ -185,7 +196,7 @@ python -c "from mcp_servers.rag_server.vector_store import VectorStore; print('�
 rag-bot/
 ├── 📄 README.md                 # Project documentation
 ├── 🔧 config.py                 # Configuration management
-├── 📦 requirements.txt          # Python dependencies  
+├── 📦 requirements.txt          # Python dependencies
 ├── 🌐 web_server.py             # FastAPI backend
 ├── 🕸️ simple_web_app.py        # Self-contained web interface
 ├── 🔍 test_rag_system.py        # Comprehensive test suite
@@ -296,19 +307,23 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ### Common Issues
 
 **1. "HF_TOKEN is required" Error**
+
 - Make sure you've created `.env` file from `.env.example`
 - Add your valid Hugging Face token
 - Verify token is active at https://huggingface.co/settings/tokens
 
 **2. "Port already in use" Error**
+
 - Check if another process is using port 8000 or 3000
 - Kill the process or change the port in configuration
 
 **3. React UI not connecting to backend**
+
 - Ensure both frontend (port 3000) and backend (port 8000) are running
 - Check CORS settings in `web_server.py`
 
 **4. Document upload fails**
+
 - Verify the file format is supported (TXT, PDF, DOCX)
 - Check file size limits
 - Ensure proper permissions on upload directory
