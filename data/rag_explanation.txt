@@ -1,0 +1,63 @@
+Retrieval-Augmented Generation (RAG)
+
+Retrieval-Augmented Generation (RAG) is an AI framework that combines information retrieval with text generation to produce more accurate and contextually relevant responses. RAG enhances the capabilities of large language models by incorporating external knowledge sources.
+
+How RAG Works:
+
+1. Retrieval Phase:
+   - When a user asks a question, the system searches through a knowledge base
+   - Relevant documents or passages are retrieved using similarity search
+   - Vector embeddings are commonly used for semantic similarity matching
+
+2. Augmentation Phase:
+   - The retrieved documents are combined with the original query
+   - This creates an enriched context for the language model
+   - The context provides specific, up-to-date information
+
+3. Generation Phase:
+   - The language model generates a response based on both the query and retrieved context
+   - The response is grounded in the retrieved information
+   - This reduces hallucination and improves factual accuracy
+
+Benefits of RAG:
+
+- Knowledge Updating: External knowledge can be updated without retraining the model
+- Factual Accuracy: Responses are grounded in retrieved documents
+- Source Attribution: Can provide citations and sources for generated content
+- Domain Specificity: Can be tailored to specific domains or use cases
+- Cost Efficiency: More cost-effective than training large models from scratch
+
+RAG vs Fine-tuning:
+
+RAG:
+- Dynamic knowledge updates
+- Lower computational cost
+- Better for factual accuracy
+- Requires retrieval infrastructure
+
+Fine-tuning:
+- Knowledge baked into model parameters
+- Higher computational cost for updates
+- Better for style and format adaptation
+- Simpler deployment
+
+Common RAG Architectures:
+
+1. Dense Passage Retrieval (DPR)
+2. Fusion-in-Decoder (FiD)
+3. REALM (Retrieval-Augmented Language Model)
+4. T5-based RAG systems
+
+Vector Databases for RAG:
+- FAISS (Facebook AI Similarity Search)
+- Pinecone
+- Weaviate
+- Chroma
+- Qdrant
+
+Use Cases:
+- Question Answering Systems
+- Document Summarization
+- Customer Support Chatbots
+- Knowledge Management Systems
+- Research Assistance Tools
